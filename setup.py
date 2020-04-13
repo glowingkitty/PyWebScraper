@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="PyWebScraper",  # Replace with your own username
-    version="0.0.3",
+    version="0.0.4",
     author="Marco",
     author_email=None,
     description="A web scraper that combines both Beautiful Soup (bs4) and Selenium.",

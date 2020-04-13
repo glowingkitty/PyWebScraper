@@ -18,7 +18,7 @@ pip install PyWebScraper
 from PyWebScraper import Scraper
 ```
 
-Scraper() with call bs4 or selenium (defined with the input 'scraper_type') to then load a website (defined by the input 'url') and save it under Scraper().page.
+Scraper() will load bs4 or selenium (defined with the input 'scraper_type') to then load a website (defined by the input 'url') and save it under Scraper().page.
 
 Optional inputs for Scraper():
 ```
