@@ -4,13 +4,12 @@ import sys
 import time
 
 from bs4 import BeautifulSoup
+from PyWebScraper.log import Log
 from requests import get
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.options import Options
-
-from PyWebScraper.log import Log
 
 
 class Scraper():
@@ -73,27 +72,12 @@ class Scraper():
                 profile = webdriver.FirefoxProfile()
                 selenium = webdriver.Firefox(
                     firefox_profile=profile,
-                    options=options,
-                    executable_path=self.geckodriver_path
+                    options=options
                 )
             selenium.get('https://en.wikipedia.org')
             return True
         except:
             return False
-
-    @property
-    def geckodriver_path(self):
-        # check if geckodriver file exists, if yes, use that file, else get geckodriver via $PATH variable of OS
-        if hasattr(self, 'geckodriver_path_value'):
-            return self.geckodriver_path_value
-
-        if os.path.isfile(sys.path[0].split('PyWebScraper')[0]+'geckodriver'):
-            self.geckodriver_path_value = sys.path[0].split('PyWebScraper')[
-                0]+'geckodriver'
-        else:
-            self.geckodriver_path_value = 'geckodriver'
-
-        return self.geckodriver_path_value
 
     def setup(self):
         from selenium.webdriver.firefox.options import Options
@@ -112,8 +96,7 @@ class Scraper():
         profile = webdriver.FirefoxProfile()
         selenium = webdriver.Firefox(
             firefox_profile=profile,
-            options=options,
-            executable_path=self.geckodriver_path
+            options=options
         )
         selenium.get('https://en.wikipedia.org')
         Log().show_messages(
@@ -147,8 +130,7 @@ class Scraper():
                 options.add_argument("--headless")
                 self.selenium = webdriver.Firefox(
                     firefox_profile=profile,
-                    options=options,
-                    executable_path=self.geckodriver_path
+                    options=options
                 )
 
             self.selenium.get(url)
