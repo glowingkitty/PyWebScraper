@@ -19,6 +19,7 @@ class Scraper():
                  scraper_type='bs4',
                  scroll_down=False,
                  user_agent='desktop',
+                 headless=True,
                  auto_close_selenium=True,
                  selenium_remote_webdriver=None):
         self.logs = ['self.__init__']
@@ -28,6 +29,7 @@ class Scraper():
         self.page = None
         self.scroll_down = scroll_down
         self.selenium = None
+        self.headless = headless
         self.auto_close_selenium = auto_close_selenium
         self.selenium_remote_webdriver = selenium_remote_webdriver
         if user_agent == 'mobile':
@@ -68,7 +70,8 @@ class Scraper():
                 from selenium.webdriver.firefox.options import Options
 
                 options = Options()
-                options.add_argument("--headless")
+                if self.headless:
+                    options.add_argument("--headless")
                 profile = webdriver.FirefoxProfile()
                 selenium = webdriver.Firefox(
                     firefox_profile=profile,
@@ -92,7 +95,8 @@ class Scraper():
             ['Ok, I will test now if everything is setup correctly. If you get an error message, research online how to fix the error.'])
 
         options = Options()
-        options.add_argument("--headless")
+        if self.headless:
+            options.add_argument("--headless")
         profile = webdriver.FirefoxProfile()
         selenium = webdriver.Firefox(
             firefox_profile=profile,
@@ -127,7 +131,8 @@ class Scraper():
                 from selenium.webdriver.firefox.options import Options
 
                 options = Options()
-                options.add_argument("--headless")
+                if self.headless:
+                    options.add_argument("--headless")
                 self.selenium = webdriver.Firefox(
                     firefox_profile=profile,
                     options=options
