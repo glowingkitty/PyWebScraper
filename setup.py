@@ -5,13 +5,13 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="PyWebScraper",  # Replace with your own username
-    version="0.1.4",
+    version="0.1.5",
     author="Marco",
     author_email=None,
     description="A web scraper that combines both Beautiful Soup (bs4) and Selenium.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/marcoEDU/PyWebScraper",
+    url="https://github.com/glowingkitty/PyWebScraper",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
